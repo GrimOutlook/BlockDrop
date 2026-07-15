@@ -99,6 +99,10 @@ class _SwipeDetectorState extends State<SwipeDetector> {
             widget.gameLogic.movePieceDown();
             _totalDy = 0.0;
             _lastMoveTime = now;
+          } else if (-_totalDy >= widget.moveThreshold) {
+            widget.gameLogic.holdPiece();
+            _totalDy = 0.0;
+            _lastMoveTime = now;
           }
         }
       },
